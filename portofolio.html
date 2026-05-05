@@ -14,14 +14,19 @@
     <!-- navbar -->
     <nav class="navbar">
       <div class="logo">PORTOFOLIO</div>
-      <ul class="nav-menu">
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">Tentang</a></li>
         <li><a href="#skills">Skill</a></li>
         <li><a href="#galery">Galery</a></li>
         <li><a href="#contact">Kontak</a></li>
       </ul>
-      <button>Hubungi Saya</button>
+      <button class="contact-btn">Hubungi Saya</button>
     </nav>
     <main>
       <section class="home" id="home">
@@ -131,6 +136,25 @@
     </div>
   </section>
   </main>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
